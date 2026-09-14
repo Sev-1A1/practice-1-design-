@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/lessons.css">   
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <title>Practice1</title>
+    </head>
+
+    <header>
+        <h1>HTML lessons</h1>
+    </header>
+
+        <body>
+
+    <div class="buttons">
+            <button class="button"><a href="../index.html">Home</a></button>
+            <button class="button"><a class="active" aria-current="page">HTML lessons</a></button>
+            <button class="button"><a href="css.html">CSS lessons</a></button>
+            <button class="button"><a href="javascript.html">JavaScript lessons</a></button>
+    </div>
+
+    <h2>Choose lessons in HTML: </h2>
+    <div class="dropdown">
+        <select name="lessons" id="lessons" onchange="jumpToLesson(this.value)">
+            <option value="top">0.1: Menu</option>
+            <option value="html-basics">Lesson 1: HTML Basics</option>
+            <option value="common-html-elements">Lesson 2: Common HTML Elements</option>
+            <option value="identifiers-and-grouping">Lesson 3: Identifiers and Grouping</option>
+            <option value="special-characters-and-linking">Lesson 4: Special Characters and Linking</option>
+            <option value="boilerplate-and-encoding">Lesson 5: Boilerplate and Encoding</option>
+            <option value="seo-and-social-sharing">Lesson 6: SEO and Social Sharing</option>
+            <option value="media-elements-and-optimization">Lesson 7: Media Elements and Optimization</option>
+            <option value="multimedia-integration">Lesson 8: Multimedia Integration</option>
+            <option value="target-attribute-types">Lesson 9: Target Attribute Types</option>
+            <option value="absolute-vs-relative-paths">Lesson 10: Absolute vs. Relative Paths</option>
+            <option value="link-states">Lesson 11: Link States</option>
+        </select>   
+        <script>
+            const lessonSelect = document.getElementById('lessons');
+
+            function jumpToLesson(lessonId) {
+                if (lessonId === 'top') {
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                window.location.hash = lessonId;
+            }
+
+            function selectLessonFromHash() {
+                const lessonId = window.location.hash.slice(1);
+
+                lessonSelect.value = lessonId || 'top';
+            }
+
+            selectLessonFromHash();
+            window.addEventListener('hashchange', selectLessonFromHash);
+        </script>
+    </div>
+
+    <main class="lesson-content">
+    <section id="html-basics">
+        <article>
+            <h3>HTML Basics</h3>
+            <p><strong>Role of HTML:</strong> HTML represents the content and structure of a web page.</p>
+            <p><strong>HTML elements:</strong> Elements are the building blocks of an HTML document. Most elements have an opening tag and a closing tag.</p>
+            <pre><code>&lt;elementName&gt;Content goes here&lt;/elementName&gt;</code></pre>
+            <p><strong>Void elements:</strong> Void elements cannot have content and only have a start tag. The slash is optional.</p>
+            <pre><code>&lt;img&gt;
+&lt;meta&gt;
+&lt;img/&gt;</code></pre>
+            <p><strong>Attributes:</strong> Attributes provide additional information or behavior for an element. Boolean attributes are true when present and false when absent.</p>
+            <pre><code>&lt;element attribute="value"&gt;&lt;/element&gt;
+
+&lt;input disabled readonly required&gt;</code></pre>
+            <p><strong>Comments:</strong> Comments leave notes in the source without displaying them on the page.</p>
+            <pre><code>&lt;!-- This is an HTML comment. --&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="common-html-elements">
+        <article>
+            <h3>Common HTML Elements</h3>
+            <p><strong>Heading elements:</strong> HTML has six heading levels. <code>h1</code> is the most important and <code>h6</code> is the least important.</p>
+            <pre><code>&lt;h1&gt;Most important heading&lt;/h1&gt;
+&lt;h2&gt;Second-level heading&lt;/h2&gt;
+&lt;h3&gt;Third-level heading&lt;/h3&gt;
+&lt;h4&gt;Fourth-level heading&lt;/h4&gt;
+&lt;h5&gt;Fifth-level heading&lt;/h5&gt;
+&lt;h6&gt;Least important heading&lt;/h6&gt;</code></pre>
+            <p><strong>Paragraphs and images:</strong> Use <code>p</code> for paragraphs and <code>img</code> with descriptive <code>src</code> and <code>alt</code> attributes for images.</p>
+            <pre><code>&lt;p&gt;This is a paragraph element.&lt;/p&gt;
+
+&lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg"
+     alt="A slice of lasagna on a plate."&gt;</code></pre>
+            <p><strong>Containers:</strong> The <code>body</code>, <code>section</code>, and <code>div</code> elements group page content. The <code>section</code> element has semantic meaning; <code>div</code> is a generic container.</p>
+            <pre><code>&lt;section&gt;
+    &lt;h2&gt;About Me&lt;/h2&gt;
+    &lt;p&gt;Hi, I am Jane Doe and I am a web developer.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;div&gt;
+    &lt;h1&gt;I am a heading&lt;/h1&gt;
+    &lt;p&gt;I am a paragraph&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            <p><strong>Links and lists:</strong> Use <code>a</code> with <code>href</code> for links, <code>ul</code> for bulleted lists, and <code>ol</code> for ordered lists.</p>
+            <pre><code>&lt;a href="https://cdn.freecodecamp.org/curriculum/cat-photo-app/running-cats.jpg"&gt;Cute cats&lt;/a&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;catnip&lt;/li&gt;
+    &lt;li&gt;laser pointers&lt;/li&gt;
+    &lt;li&gt;lasagna&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;flea treatment&lt;/li&gt;
+    &lt;li&gt;thunder&lt;/li&gt;
+    &lt;li&gt;other cats&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            <p><strong>Text and figures:</strong> <code>em</code> adds emphasis, <code>strong</code> marks strong importance, and <code>figure</code> with <code>figcaption</code> groups media with its caption.</p>
+            <pre><code>&lt;p&gt;Cats &lt;em&gt;love&lt;/em&gt; lasagna.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg"
+         alt="Two tabby kittens sleeping together on a couch."&gt;
+    &lt;figcaption&gt;Cats &lt;strong&gt;hate&lt;/strong&gt; other cats.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            <p><strong>Page controls:</strong> <code>main</code> identifies the primary content, <code>footer</code> identifies the bottom content, and <code>button</code> creates a clickable control.</p>
+            <pre><code>&lt;button&gt;Click me&lt;/button&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;No Copyright - &lt;a href="https://www.freecodecamp.org"&gt;freeCodeCamp.org&lt;/a&gt;&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="identifiers-and-grouping">
+        <article>
+            <h3>Identifiers and Grouping</h3>
+            <p><strong>IDs:</strong> An ID uniquely identifies one element in a document. ID names cannot contain spaces.</p>
+            <pre><code>&lt;h1 id="title"&gt;Movie Review Page&lt;/h1&gt;
+&lt;div id="red-box"&gt;&lt;/div&gt;</code></pre>
+            <p><strong>Classes:</strong> Classes group elements for styling and behavior. A class can be reused, and an element can have multiple classes.</p>
+            <pre><code>&lt;div class="box"&gt;&lt;/div&gt;
+&lt;div class="box red-box"&gt;&lt;/div&gt;
+&lt;div class="box blue-box"&gt;&lt;/div&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="special-characters-and-linking">
+        <article>
+            <h3>Special Characters and Linking</h3>
+            <p><strong>HTML entities:</strong> Character references represent reserved characters in HTML, such as the ampersand and less-than symbols.</p>
+            <pre><code>&lt;p&gt;This is an &amp;lt;img /&amp;gt; element&lt;/p&gt;</code></pre>
+            <p><strong>Link element:</strong> Use <code>link</code> to connect external resources such as stylesheets and site icons. The <code>rel</code> attribute describes the relationship and <code>href</code> gives the resource URL.</p>
+            <pre><code>&lt;link rel="stylesheet" href="./styles.css" /&gt;</code></pre>
+            <p><strong>Script element:</strong> Use <code>script</code> to embed or link executable JavaScript. Linking an external file is generally preferred.</p>
+            <pre><code>&lt;script src="path-to-javascript-file.js"&gt;&lt;/script&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="boilerplate-and-encoding">
+        <article>
+            <h3>Boilerplate and Encoding</h3>
+            <p>HTML boilerplate provides the basic structure and essential metadata for a document. <code>DOCTYPE</code> identifies the HTML version, <code>html</code> is the root element, and <code>head</code> contains metadata.</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;freeCodeCamp&lt;/title&gt;
+        &lt;link rel="stylesheet" href="./styles.css" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Headings, paragraphs, images, etc. go inside here --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p><strong>UTF-8:</strong> UTF-8 is a widely used character encoding. Set it with the <code>charset</code> attribute on a <code>meta</code> element.</p>
+        </article>
+    </section>
+
+    <section id="seo-and-social-sharing">
+        <article>
+            <h3>SEO and Social Sharing</h3>
+            <p><strong>SEO:</strong> Search Engine Optimization helps pages become more visible and rank higher in search engines.</p>
+            <p><strong>Description metadata:</strong> A description summarizes the page for search engines.</p>
+            <pre><code>&lt;meta name="description"
+      content="Discover expert tips and techniques for gardening in small spaces." /&gt;</code></pre>
+            <p><strong>Open Graph tags:</strong> Open Graph properties control how shared content appears on services such as Facebook and LinkedIn.</p>
+            <pre><code>&lt;meta property="og:title" content="freeCodeCamp.org" /&gt;
+&lt;meta property="og:type" content="website" /&gt;
+&lt;meta property="og:image" content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png" /&gt;
+&lt;meta property="og:url" content="https://www.freecodecamp.org" /&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="media-elements-and-optimization">
+        <article>
+            <h3>Media Elements and Optimization</h3>
+            <p><strong>Replaced elements:</strong> An element such as <code>iframe</code> gets its content from an external resource.</p>
+            <pre><code>&lt;iframe src="https://www.example.com" title="Example Site"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="video-url" width="560" height="315" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+            <p><strong>Media optimization:</strong> Consider the size, format, and compression of media. WEBP and AVIF are often more efficient than PNG and JPG. Check image licenses before publishing.</p>
+            <p><strong>SVG:</strong> Scalable Vector Graphics use paths and equations, so they can scale without losing quality.</p>
+        </article>
+    </section>
+
+    <section id="multimedia-integration">
+        <article>
+            <h3>Multimedia Integration</h3>
+            <p><strong>Audio and video:</strong> These elements support media files such as MP3, WAV, OGG, MP4, and WEBM. The <code>controls</code> attribute displays playback controls; <code>autoplay</code>, <code>loop</code>, and <code>muted</code> are boolean attributes.</p>
+            <pre><code>&lt;audio src="CrystalizeThatInnerChild.mp3" controls&gt;&lt;/audio&gt;
+
+&lt;video src="video.mp4" loop controls muted poster="poster.jpg" width="620"&gt;&lt;/video&gt;</code></pre>
+            <p><strong>Source elements:</strong> Multiple sources let the browser choose the first format it supports.</p>
+            <pre><code>&lt;audio controls&gt;
+    &lt;source src="audio.ogg" type="audio/ogg" /&gt;
+    &lt;source src="audio.wav" type="audio/wav" /&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg" /&gt;
+&lt;/audio&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="target-attribute-types">
+        <article>
+            <h3>Target Attribute Types</h3>
+            <p>The <code>target</code> attribute tells the browser where to open an anchor URL. <code>_self</code> is the current context, <code>_blank</code> opens a new context, <code>_parent</code> opens in the parent frame, and <code>_top</code> opens in the top-level context.</p>
+            <pre><code>&lt;a href="https://freecodecamp.org" target="_self"&gt;Visit freeCodeCamp&lt;/a&gt;
+&lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+&lt;a href="https://freecodecamp.org" target="_parent"&gt;Visit freeCodeCamp&lt;/a&gt;
+&lt;a href="https://freecodecamp.org" target="_top"&gt;Visit freeCodeCamp&lt;/a&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="absolute-vs-relative-paths">
+        <article>
+            <h3>Absolute vs. Relative Paths</h3>
+            <p>A path identifies a file or directory. A slash separates names, a single dot means the current directory, and two dots mean the parent directory.</p>
+            <pre><code>public/index.html
+./favicon.ico
+../src/index.css</code></pre>
+            <p><strong>Absolute path:</strong> A complete route from the root directory. An absolute URL also includes a protocol and domain.</p>
+            <pre><code>&lt;a href="https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg"&gt;
+    View the freeCodeCamp logo
+&lt;/a&gt;</code></pre>
+            <p><strong>Relative path:</strong> A resource location relative to the current document.</p>
+            <pre><code>&lt;p&gt;Read more on the &lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/p&gt;</code></pre>
+        </article>
+    </section>
+
+    <section id="link-states">
+        <div class="lesson-content">
+            <article>
+                <h3>Link States</h3>
+                <p><strong>:link:</strong> The default state for a link that has not been visited.</p>
+                <p><strong>:visited:</strong> The state for a link the user has already visited.</p>
+                <p><strong>:hover:</strong> The state while the pointer is over a link.</p>
+                <p><strong>:focus:</strong> The state when a link receives keyboard or programmatic focus.</p>
+                <p><strong>:active:</strong> The state while a link is being activated, usually during a click.</p>
+            </article>
+        </div>
+    </section>
+    </main>
+
+        </body>
+   
+
+</html>    

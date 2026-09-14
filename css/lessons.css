@@ -1,0 +1,232 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(231, 225, 225);
+    background-size: center center;
+    padding: auto;
+    margin: auto;    
+    animation-name: practice1;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both; 
+    animation-delay: 0.2s;  
+}
+
+header{
+    padding: 10px 20px 20px 20px;  
+    background-color: rgb(248, 249, 250);
+    text-align: center;
+    margin-top: 80px;
+    border-radius: 20px;
+    margin-left: 350px;
+    margin-right: 350px;
+    outline: auto;
+}
+
+header h1{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 2.9rem;
+    font-family: 'Courier New', Jetbrains, monospace;
+    margin-top: 10px;
+}
+
+a {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none; 
+    color: rgb(5, 5, 5);
+    margin-top: 100px;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+   
+}
+
+.button{
+     border-radius: 10px;
+     padding: 10px 20px;
+    font-size: 1.2rem;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button a.active {
+    pointer-events: none;
+    cursor: default;
+    color: rgb(175, 174, 174);
+}
+
+.button:hover {
+    transform: scale(1.05);
+
+}
+
+.dropdown select {
+    padding: 10px 30px 10px 70px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: black 2px solid;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+}
+
+option {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold; 
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 40px;
+
+}
+
+article {
+    min-width: 200px;
+    margin: 40px auto;
+    padding: 10px;
+    background-color: rgb(248, 249, 250);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+h3 {
+    align-items: center;
+    text-align: center;
+}
+
+p {
+    padding: 20px;
+}
+
+pre {
+    position: relative;
+    overflow-x: auto;
+    margin: 10px 20px 28px;
+    padding: 46px 24px 22px;
+    border: 1px solid rgba(156, 189, 199, 0.22);
+    border-radius: 8px;
+    background: #17252b;
+    box-shadow: 0 10px 20px rgba(21, 35, 40, 0.16);
+    color: #e9f2ef;
+    text-align: left;
+    scrollbar-color: #6ea5a0 #17252b;
+}
+
+pre::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 24px 10px 56px;
+    border-bottom: 1px solid rgba(156, 189, 199, 0.18);
+    background: #20343b;
+    color: #a9d9cb;
+    content: "HTML";
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+}
+
+pre::after {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ed8b72;
+    box-shadow: 12px 0 #e8c56b, 24px 0 #82c7a5;
+    content: "";
+}
+
+pre code {
+    display: block;
+    color: #e9f2ef;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.75;
+    white-space: pre;
+}
+
+article > p code {
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(74, 125, 132, 0.14);
+    color: #245b63;
+    font-size: 0.92em;
+}
+
+@media (max-width: 700px) {
+    header {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    article {
+        margin-left: 12px;
+        margin-right: 12px;
+        font-size: 1rem;
+    }
+
+    pre {
+        margin-left: 8px;
+        margin-right: 100px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    pre::before {
+        padding-left: 48px;
+    }
+
+    pre code {
+        font-size: 0.88rem;
+    }
+}
+
+
+@keyframes practice1 {
+from {
+        opacity: 0;
+        transform: translateY(-20px); /* Starts 30px lower */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);    /* Moves up to its natural position */
+      }
+    }

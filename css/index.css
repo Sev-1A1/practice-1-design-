@@ -1,0 +1,127 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background-image: url("../css/pictures/background.jpg");
+    background-size: cover;
+    padding: auto;
+    margin: auto;
+    animation-name: main;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both; 
+    animation-delay: 0.2s; 
+}
+
+header {
+    margin-top: auto;
+    background-color: rgba(42, 43, 44, 0.7);
+    padding: 35px;
+    border-radius: 20px;
+
+}
+
+header h1{
+    text-align: left;
+    color: rgb(250, 250, 250);
+    font-size: 1.9rem;
+    font-family: 'Courier New', Jetbrains, monospace;
+    
+}
+
+.content-main {
+    text-align: center;
+    margin-top: 140px;
+    background-color: rgba(255, 255, 255, 0.70);
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    opacity: 1.9;
+    outline: black 2px solid;
+    
+}
+
+.content-main h1 {
+    font-size: 2.9rem;;
+    color: rgba(2, 42, 59);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+.content-main p {
+    font-size: 1.5rem;
+    color: rgba(2, 42, 59);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 40px;
+}
+
+.button {
+    background-color: rgb(55, 96, 116);
+    color: white;
+    border: none;
+    padding: 10px 90px 10px 90px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 60px;
+    opacity: 0.97;
+    transition: background-color 0.9s ease, transform 0.3s ease;
+    word-spacing: 10px;
+    outline: black 2px solid;
+}
+
+.button:hover {
+    background-color: rgb(11, 64, 97);
+    transform: scale(1.06);
+    transition: transform 0.3s, background-color 0.3s ease    
+}
+
+.button:active {
+    background-color: rgb(98, 127, 141);
+    transform: scale(0.99);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.7rem;
+    transition: background-color 0.3s ease;
+}
+
+@keyframes main {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logos {
+    position: absolute;
+    top: 20px;
+    left: 87%;
+    object-fit: contain;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
